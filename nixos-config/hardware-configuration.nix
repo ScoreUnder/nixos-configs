@@ -12,7 +12,7 @@
   boot.initrd.availableKernelModules = ["xhci_pci" "ehci_pci" "ahci" "sd_mod" "sdhci_pci"];
   boot.initrd.kernelModules = [];
   boot.kernelModules = ["kvm-intel"];
-  boot.extraModulePackages = [];
+  boot.extraModulePackages = with config.boot.kernelPackages; [evdi];
 
   boot.initrd.services.lvm.enable = true;
   boot.initrd.luks.devices = {
