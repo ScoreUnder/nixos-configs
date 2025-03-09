@@ -1,0 +1,2 @@
+#!/bin/sh
+exec rsync --exclude=wifi.nix -rv /etc/nixos/ nixos-config
