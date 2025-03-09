@@ -35,14 +35,9 @@
     enable = true; # Enables wireless support via wpa_supplicant.
     userControlled.enable = true;
   };
-  # networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
   # Set your time zone.
   time.timeZone = "Europe/London";
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_GB.UTF-8";
@@ -68,9 +63,6 @@
   services.xserver.xkb.layout = "gb";
   # services.xserver.xkb.options = "eurosign:e,caps:escape";
 
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
-
   # Enable sound.
   # sound.enable = true;  # ALSA
   #hardware.pulseaudio.enable = true;
@@ -88,22 +80,6 @@
   services.libinput.enable = true;
 
   services.logind.lidSwitch = "ignore";
-
-  # Backlight stuff
-  # Not necessary any more due to thinkpad specific hardware config
-  #services.acpid = {
-  #  enable = true;
-  #  handlers = {
-  #    brightness-up = {
-  #      event = "video/brightnessup";
-  #      action = "${pkgs.brillo}/bin/brillo -q -u 100000 -A 10";
-  #    };
-  #    brightness-down = {
-  #      event = "video/brightnessdown";
-  #      action = "${pkgs.brillo}/bin/brillo -q -u 100000 -U 10";
-  #    };
-  #  };
-  #};
 
   hardware.bluetooth = {
     enable = true;
@@ -217,8 +193,6 @@
     nethogs
     mtr
     # traceroute -> can use tracepath in simple cases
-
-    #brillo
   ];
 
   environment.localBinInPath = true;
