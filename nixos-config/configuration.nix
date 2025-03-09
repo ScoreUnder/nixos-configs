@@ -44,7 +44,7 @@
   i18n.inputMethod = {
     enable = true;
     type = "ibus";
-    ibus.engines = with pkgs.ibus-engines; [ anthy m17n mozc ];
+    ibus.engines = with pkgs.ibus-engines; [anthy m17n mozc];
   };
   console = {
     #font = "Lat2-Terminus16";

@@ -12,15 +12,20 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
-  outputs = { self, nixpkgs, nixos-hardware }: {
+  outputs = {
+    self,
+    nixpkgs,
+    nixos-hardware,
+  }: {
     nixosConfigurations.hakurei = nixpkgs.lib.nixosSystem {
       # pkgs = import nixpkgs { inherit system; config = { allowUnfree = true; };};
       system = "x86_64-linux";
-      modules = [ ./configuration.nix
-                  nixos-hardware.nixosModules.lenovo-thinkpad-t430
-                  # According to Reddit /u/Aidenn0: This fixes nixpkgs (for e.g. "nix shell") to match the system nixpkgs
-                  ({ ... }: { nix.registry.nixpkgs.flake = nixpkgs; })
-                ];
+      modules = [
+        ./configuration.nix
+        nixos-hardware.nixosModules.lenovo-thinkpad-t430
+        # According to Reddit /u/Aidenn0: This fixes nixpkgs (for e.g. "nix shell") to match the system nixpkgs
+        (_: {nix.registry.nixpkgs.flake = nixpkgs;})
+      ];
     };
   };
 }
