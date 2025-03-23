@@ -53,15 +53,21 @@
   };
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
-  services.xserver.windowManager.i3.enable = true;
+  services.xserver = {
+    enable = true;
+    videoDrivers = ["displaylink" "modesetting"];
+    windowManager.i3.enable = true;
+    # Configure keymap in X11
+    xkb.layout = "gb";
+    # xkb.options = "eurosign:e,caps:escape";
+    displayManager.sessionCommands = ''
+      # ${lib.getBin pkgs.xorg.xrandr}/bin/xrandr --setprovideroutputsource 1 0
+    '';
+  };
+
   services.displayManager.autoLogin.user = "score";
 
   programs.i3lock.enable = true;
-
-  # Configure keymap in X11
-  services.xserver.xkb.layout = "gb";
-  # services.xserver.xkb.options = "eurosign:e,caps:escape";
 
   # Enable sound.
   # sound.enable = true;  # ALSA
