@@ -133,6 +133,7 @@
       pavucontrol
 
       # Yubikey
+      yubikey-manager
       yubioath-flutter
 
       # Command-line
@@ -141,8 +142,33 @@
       delta
       pass
 
-      prismlauncher
+      # Other applications
       gimp
+      prismlauncher
+      tagainijisho
+      zathura
+
+      # Code
+      alejandra
+      python3.pkgs.black
+      python3.pkgs.flake8
+      gnumake
+      python3.pkgs.jedi-language-server
+      python3.pkgs.mypy
+      pyright
+      python3.pkgs.ruff
+      statix
+
+      # Screenshots
+      maim
+      slop
+      optipng
+
+      # For profile scripts
+      cryfs
+      unzip
+      xautolock
+      xclip
     ];
   };
 
