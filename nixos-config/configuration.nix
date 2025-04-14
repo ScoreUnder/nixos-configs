@@ -54,7 +54,7 @@
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
-    videoDrivers = ["displaylink" "modesetting"];
+    videoDrivers = ["modesetting"];
     windowManager.i3.enable = true;
     # Configure keymap in X11
     xkb.layout = "gb";
